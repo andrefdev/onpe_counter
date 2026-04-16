@@ -25,6 +25,25 @@ function saveHistory(history) {
   fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2), 'utf-8');
 }
 
+function gitPush() {
+  const { execSync } = require('child_process');
+  const cwd = path.join(__dirname);
+  try {
+    execSync('git add public/data/history.json', { cwd, stdio: 'pipe' });
+    const ts = new Date().toLocaleString('es-PE', { timeZone: 'America/Lima' });
+    execSync(`git commit -m "data: ${ts}"`, { cwd, stdio: 'pipe' });
+    execSync('git push', { cwd, stdio: 'pipe', timeout: 30000 });
+    console.log('  Git push OK');
+  } catch (err) {
+    const msg = err.stderr ? err.stderr.toString() : err.message;
+    if (msg.includes('nothing to commit')) {
+      console.log('  Git: sin cambios');
+    } else {
+      console.error('  Git push error:', msg.substring(0, 200));
+    }
+  }
+}
+
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 5000;
 
@@ -341,6 +360,7 @@ async function main() {
     history.push(snapshot);
     saveHistory(history);
     console.log(`  Snapshot guardado (#${history.length})`);
+    gitPush();
   } else {
     console.log('  Datos sin cambio desde ultimo snapshot (misma fecha ONPE)');
   }
@@ -363,6 +383,7 @@ async function main() {
         hist.push(snap);
         saveHistory(hist);
         console.log(`  Snapshot guardado (#${hist.length})`);
+        gitPush();
       } else {
         console.log('  Datos sin cambio.');
       }
