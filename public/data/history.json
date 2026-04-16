@@ -895,5 +895,304 @@
         "porcentajeEmitidos": 0.048
       }
     ]
+  },
+  {
+    "timestamp": 1776361505280,
+    "fechaOnpe": 1776360300459,
+    "actasContabilizadas": 93.022,
+    "totalActas": 92766,
+    "contabilizadas": 86293,
+    "totalVotosValidos": 15698722,
+    "totalVotosEmitidos": 18830114,
+    "candidatos": [
+      {
+        "nombre": "KEIKO SOFIA FUJIMORI HIGUCHI",
+        "partido": "FUERZA POPULAR",
+        "codigo": "8",
+        "votos": 2678749,
+        "porcentaje": 17.063,
+        "porcentajeEmitidos": 14.226
+      },
+      {
+        "nombre": "ROBERTO HELBERT SANCHEZ PALOMINO",
+        "partido": "JUNTOS POR EL PERÚ",
+        "codigo": "10",
+        "votos": 1879713,
+        "porcentaje": 11.974,
+        "porcentajeEmitidos": 9.982
+      },
+      {
+        "nombre": "RAFAEL BERNARDO LÓPEZ ALIAGA CAZORLA",
+        "partido": "RENOVACIÓN POPULAR",
+        "codigo": "35",
+        "votos": 1872766,
+        "porcentaje": 11.929,
+        "porcentajeEmitidos": 9.946
+      },
+      {
+        "nombre": "JORGE NIETO MONTESINOS",
+        "partido": "PARTIDO DEL BUEN GOBIERNO",
+        "codigo": "16",
+        "votos": 1738719,
+        "porcentaje": 11.076,
+        "porcentajeEmitidos": 9.234
+      },
+      {
+        "nombre": "RICARDO PABLO BELMONT CASSINELLI",
+        "partido": "PARTIDO CÍVICO OBRAS",
+        "codigo": "14",
+        "votos": 1593643,
+        "porcentaje": 10.151,
+        "porcentajeEmitidos": 8.463
+      },
+      {
+        "nombre": "CARLOS GONSALO ALVAREZ LOAYZA",
+        "partido": "PARTIDO PAÍS PARA TODOS",
+        "codigo": "23",
+        "votos": 1239230,
+        "porcentaje": 7.894,
+        "porcentajeEmitidos": 6.581
+      },
+      {
+        "nombre": "PABLO ALFONSO LOPEZ CHAU NAVA",
+        "partido": "AHORA NACIÓN - AN",
+        "codigo": "2",
+        "votos": 1153274,
+        "porcentaje": 7.346,
+        "porcentajeEmitidos": 6.125
+      },
+      {
+        "nombre": "MARIA SOLEDAD PEREZ TELLO",
+        "partido": "PRIMERO LA GENTE – COMUNIDAD, ECOLOGÍA, LIBERTAD Y PROGRESO",
+        "codigo": "33",
+        "votos": 539288,
+        "porcentaje": 3.435,
+        "porcentajeEmitidos": 2.864
+      },
+      {
+        "nombre": "ALFONSO CARLOS ESPA Y GARCES-ALVEAR",
+        "partido": "PARTIDO SICREO",
+        "codigo": "31",
+        "votos": 530487,
+        "porcentaje": 3.379,
+        "porcentajeEmitidos": 2.817
+      },
+      {
+        "nombre": "LUIS FERNANDO OLIVERA VEGA",
+        "partido": "PARTIDO FRENTE DE LA ESPERANZA 2021",
+        "codigo": "21",
+        "votos": 290538,
+        "porcentaje": 1.851,
+        "porcentajeEmitidos": 1.543
+      },
+      {
+        "nombre": "JOSE LEON LUNA GALVEZ",
+        "partido": "PODEMOS PERÚ",
+        "codigo": "32",
+        "votos": 248327,
+        "porcentaje": 1.582,
+        "porcentajeEmitidos": 1.319
+      },
+      {
+        "nombre": "YONHY LESCANO ANCIETA",
+        "partido": "PARTIDO POLÍTICO COOPERACIÓN POPULAR",
+        "codigo": "25",
+        "votos": 204236,
+        "porcentaje": 1.301,
+        "porcentajeEmitidos": 1.085
+      },
+      {
+        "nombre": "CESAR ACUÑA PERALTA",
+        "partido": "ALIANZA PARA EL PROGRESO",
+        "codigo": "1",
+        "votos": 177384,
+        "porcentaje": 1.13,
+        "porcentajeEmitidos": 0.942
+      },
+      {
+        "nombre": "PITTER ENRIQUE VALDERRAMA PEÑA",
+        "partido": "PARTIDO APRISTA PERUANO",
+        "codigo": "12",
+        "votos": 150612,
+        "porcentaje": 0.959,
+        "porcentajeEmitidos": 0.8
+      },
+      {
+        "nombre": "GEORGE PATRICK FORSYTH SOMMER",
+        "partido": "PARTIDO DEMOCRÁTICO SOMOS PERÚ",
+        "codigo": "20",
+        "votos": 140549,
+        "porcentaje": 0.895,
+        "porcentajeEmitidos": 0.746
+      },
+      {
+        "nombre": "HERBERT CALLER GUTIERREZ",
+        "partido": "PARTIDO PATRIÓTICO DEL PERÚ",
+        "codigo": "24",
+        "votos": 135054,
+        "porcentaje": 0.86,
+        "porcentajeEmitidos": 0.717
+      },
+      {
+        "nombre": "MARIO ENRIQUE VIZCARRA CORNEJO",
+        "partido": "PARTIDO POLÍTICO PERÚ PRIMERO",
+        "codigo": "29",
+        "votos": 134435,
+        "porcentaje": 0.856,
+        "porcentajeEmitidos": 0.714
+      },
+      {
+        "nombre": "RONALD DARWIN ATENCIO SOTOMAYOR",
+        "partido": "ALIANZA ELECTORAL VENCEREMOS",
+        "codigo": "3",
+        "votos": 132062,
+        "porcentaje": 0.841,
+        "porcentajeEmitidos": 0.701
+      },
+      {
+        "nombre": "ROSARIO DEL PILAR FERNANDEZ BAZAN",
+        "partido": "UN CAMINO DIFERENTE",
+        "codigo": "37",
+        "votos": 117985,
+        "porcentaje": 0.752,
+        "porcentajeEmitidos": 0.627
+      },
+      {
+        "nombre": "CHARLIE CARRASCO SALAZAR",
+        "partido": "PARTIDO DEMÓCRATA UNIDO PERÚ",
+        "codigo": "17",
+        "votos": 111242,
+        "porcentaje": 0.709,
+        "porcentajeEmitidos": 0.591
+      },
+      {
+        "nombre": "VLADIMIR ROY CERRON ROJAS",
+        "partido": "PARTIDO POLÍTICO NACIONAL PERÚ LIBRE",
+        "codigo": "27",
+        "votos": 93500,
+        "porcentaje": 0.596,
+        "porcentajeEmitidos": 0.497
+      },
+      {
+        "nombre": "MESIAS ANTONIO GUEVARA AMASIFUEN",
+        "partido": "PARTIDO MORADO",
+        "codigo": "22",
+        "votos": 77048,
+        "porcentaje": 0.491,
+        "porcentajeEmitidos": 0.409
+      },
+      {
+        "nombre": "ROBERTO ENRIQUE CHIABRA LEON",
+        "partido": "UNIDAD NACIONAL",
+        "codigo": "38",
+        "votos": 63574,
+        "porcentaje": 0.405,
+        "porcentajeEmitidos": 0.338
+      },
+      {
+        "nombre": "PAUL DAVIS JAIMES BLANCO",
+        "partido": "PROGRESEMOS",
+        "codigo": "34",
+        "votos": 61726,
+        "porcentaje": 0.393,
+        "porcentajeEmitidos": 0.328
+      },
+      {
+        "nombre": "WOLFGANG MARIO GROZO COSTA",
+        "partido": "PARTIDO POLÍTICO INTEGRIDAD DEMOCRÁTICA",
+        "codigo": "26",
+        "votos": 59774,
+        "porcentaje": 0.381,
+        "porcentajeEmitidos": 0.317
+      },
+      {
+        "nombre": "ALEX GONZALES CASTILLO",
+        "partido": "PARTIDO DEMÓCRATA VERDE",
+        "codigo": "18",
+        "votos": 59454,
+        "porcentaje": 0.379,
+        "porcentajeEmitidos": 0.316
+      },
+      {
+        "nombre": "RAFAEL JORGE BELAUNDE LLOSA",
+        "partido": "LIBERTAD POPULAR",
+        "codigo": "11",
+        "votos": 38219,
+        "porcentaje": 0.243,
+        "porcentajeEmitidos": 0.203
+      },
+      {
+        "nombre": "JOSE DANIEL WILLIAMS ZAPATA",
+        "partido": "AVANZA PAÍS - PARTIDO DE INTEGRACIÓN SOCIAL",
+        "codigo": "7",
+        "votos": 30625,
+        "porcentaje": 0.195,
+        "porcentajeEmitidos": 0.163
+      },
+      {
+        "nombre": "FRANCISCO ERNESTO DIEZ-CANSECO TÁVARA",
+        "partido": "PARTIDO POLÍTICO PERÚ ACCIÓN",
+        "codigo": "28",
+        "votos": 29380,
+        "porcentaje": 0.187,
+        "porcentajeEmitidos": 0.156
+      },
+      {
+        "nombre": "FIORELLA GIANNINA MOLINELLI ARISTONDO",
+        "partido": "FUERZA Y LIBERTAD",
+        "codigo": "9",
+        "votos": 25424,
+        "porcentaje": 0.162,
+        "porcentajeEmitidos": 0.135
+      },
+      {
+        "nombre": "ALVARO GONZALO PAZ DE LA BARRA FREIGEIRO",
+        "partido": "FE EN EL PERÚ",
+        "codigo": "5",
+        "votos": 21741,
+        "porcentaje": 0.138,
+        "porcentajeEmitidos": 0.115
+      },
+      {
+        "nombre": "ARMANDO JOAQUIN MASSE FERNANDEZ",
+        "partido": "PARTIDO DEMOCRATICO FEDERAL",
+        "codigo": "19",
+        "votos": 20275,
+        "porcentaje": 0.129,
+        "porcentajeEmitidos": 0.108
+      },
+      {
+        "nombre": "ANTONIO ORTIZ VILLANO",
+        "partido": "SALVEMOS AL PERÚ",
+        "codigo": "36",
+        "votos": 16327,
+        "porcentaje": 0.104,
+        "porcentajeEmitidos": 0.087
+      },
+      {
+        "nombre": "WALTER GILMER CHIRINOS PURIZAGA",
+        "partido": "PARTIDO POLÍTICO PRIN",
+        "codigo": "30",
+        "votos": 13553,
+        "porcentaje": 0.086,
+        "porcentajeEmitidos": 0.072
+      },
+      {
+        "nombre": "NAPOLEON BECERRA GARCIA",
+        "partido": "PARTIDO DE LOS TRABAJADORES Y EMPRENDEDORES PTE - PERÚ",
+        "codigo": "15",
+        "votos": 10705,
+        "porcentaje": 0.068,
+        "porcentajeEmitidos": 0.057
+      },
+      {
+        "nombre": "CARLOS ERNESTO JAICO CARRANZA",
+        "partido": "PERÚ MODERNO",
+        "codigo": "4",
+        "votos": 9104,
+        "porcentaje": 0.058,
+        "porcentajeEmitidos": 0.048
+      }
+    ]
   }
 ]
