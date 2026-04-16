@@ -2,8 +2,8 @@ name: Scrape ONPE
 
 on:
   schedule:
-    # Cada 10 minutos
-    - cron: '*/10 * * * *'
+    # Cada 5 minutos
+    - cron: '*/5 * * * *'
   workflow_dispatch: # Permite ejecutar manualmente
 
 jobs:
