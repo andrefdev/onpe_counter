@@ -25,51 +25,97 @@ function saveHistory(history) {
   fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2), 'utf-8');
 }
 
+const MAX_RETRIES = 3;
+const RETRY_DELAY_MS = 5000;
+
 async function fetchElectionData() {
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  });
-  const page = await browser.newPage();
-  await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36');
-
-  const results = { totales: null, participantes: null };
-
-  page.on('response', async (response) => {
-    const url = response.url();
-    if (!url.includes('presentacion-backend')) return;
-    const ct = response.headers()['content-type'] || '';
-    if (!ct.includes('json')) return;
-
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    let browser;
     try {
-      const data = await response.json();
-      if (url.includes(`idEleccion=${PRESIDENTIAL_ELECTION_ID}`) && url.includes('totales')) {
-        results.totales = data.data;
-      }
-      if (url.includes(`idEleccion=${PRESIDENTIAL_ELECTION_ID}`) && url.includes('participantes')) {
-        results.participantes = data.data;
-      }
-    } catch {}
-  });
+      console.log(`  Intento ${attempt}/${MAX_RETRIES}...`);
 
-  // Navigate to presidential results page for targeted data
-  await page.goto(`${BASE_URL}/main/presidenciales`, {
-    waitUntil: 'networkidle2',
-    timeout: 45000
-  });
-  await new Promise(r => setTimeout(r, 5000));
+      browser = await puppeteer.launch({
+        headless: true,
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-gpu'
+        ],
+        protocolTimeout: 90000
+      });
 
-  // If we didn't get data from presidenciales page, try resumen
-  if (!results.participantes) {
-    await page.goto(`${BASE_URL}/main/resumen`, {
-      waitUntil: 'networkidle2',
-      timeout: 45000
-    });
-    await new Promise(r => setTimeout(r, 5000));
+      const page = await browser.newPage();
+      await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36');
+
+      const results = { totales: null, participantes: null };
+
+      page.on('response', async (response) => {
+        const url = response.url();
+        if (!url.includes('presentacion-backend')) return;
+        const ct = response.headers()['content-type'] || '';
+        if (!ct.includes('json')) return;
+
+        try {
+          const data = await response.json();
+          if (url.includes(`idEleccion=${PRESIDENTIAL_ELECTION_ID}`) && url.includes('totales')) {
+            results.totales = data.data;
+          }
+          if (url.includes(`idEleccion=${PRESIDENTIAL_ELECTION_ID}`) && url.includes('participantes')) {
+            results.participantes = data.data;
+          }
+        } catch {}
+      });
+
+      // Try presidenciales page first
+      await page.goto(`${BASE_URL}/main/presidenciales`, {
+        waitUntil: 'networkidle2',
+        timeout: 60000
+      });
+
+      // Wait up to 15s for API data to arrive
+      for (let i = 0; i < 15; i++) {
+        if (results.totales && results.participantes) break;
+        await new Promise(r => setTimeout(r, 1000));
+      }
+
+      // Fallback: try resumen page
+      if (!results.participantes) {
+        console.log('  Presidenciales no cargo, intentando resumen...');
+        await page.goto(`${BASE_URL}/main/resumen`, {
+          waitUntil: 'networkidle2',
+          timeout: 60000
+        });
+
+        for (let i = 0; i < 15; i++) {
+          if (results.totales && results.participantes) break;
+          await new Promise(r => setTimeout(r, 1000));
+        }
+      }
+
+      await browser.close();
+      browser = null;
+
+      if (results.totales && results.participantes) {
+        return results;
+      }
+
+      console.log('  No se recibieron datos de la API en este intento.');
+    } catch (err) {
+      console.error(`  Error intento ${attempt}:`, err.message);
+    } finally {
+      if (browser) {
+        try { await browser.close(); } catch {}
+      }
+    }
+
+    if (attempt < MAX_RETRIES) {
+      console.log(`  Esperando ${RETRY_DELAY_MS / 1000}s antes de reintentar...`);
+      await new Promise(r => setTimeout(r, RETRY_DELAY_MS));
+    }
   }
 
-  await browser.close();
-  return results;
+  return { totales: null, participantes: null };
 }
 
 function formatNumber(n) {
