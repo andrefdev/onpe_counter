@@ -1,0 +1,44 @@
+name: Scrape ONPE
+
+on:
+  schedule:
+    # Cada 10 minutos
+    - cron: '*/10 * * * *'
+  workflow_dispatch: # Permite ejecutar manualmente
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Puppeteer
+        run: npm install puppeteer
+
+      - name: Run scraper
+        run: node scraper.js
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet public/data/history.json 2>/dev/null; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "ONPE Scraper Bot"
+          git config user.email "bot@onpe-tracker.dev"
+          git add public/data/history.json
+          git commit -m "data: actualizar resultados ONPE $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
